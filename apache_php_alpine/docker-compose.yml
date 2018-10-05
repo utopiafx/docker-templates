@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  apache:
+    build: ./apache
+    restart: always
+    ports:
+      - "80:8500"

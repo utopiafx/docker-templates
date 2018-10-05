@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  example_app_1:
+    build: ./app
+    tty: true
+  example_app_2:
+    build: ./app
+    tty: true
+  example_app_3:
+    build: ./app
+    tty: true
+    # volumes here decides where it should be stored and is mapping the local map against the remote map.    
+    volumes: 
+     - './app/src:/home/server'    
+  proxy:
+    build: ./loadbalancer
+    tty: true # tty tells that container should be run even if daemon is not there
+    links: # links between 3 nodes above
+      - example_app_1
+      - example_app_2
+      - example_app_3
+    ports:
+      - "5500:5500"
