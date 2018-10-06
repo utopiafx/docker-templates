@@ -2,10 +2,11 @@ FROM node:alpine
 
 RUN 	mkdir -p /home/app
 
-WORKDIR /home/app
+ENV APPDIR /home/app
 
-COPY ./package.json .
-COPY ./src/server.js .
+WORKDIR $APPDIR
+
+COPY ./package.json $APPDIR
 
 # RUN npm install -g sequelize && \
 #	npm install -g sequelize-cli && \
@@ -15,6 +16,8 @@ COPY ./src/server.js .
 # Install it quitely
 # RUN npm install --quiet
 RUN npm install
+
+COPY ./src/server.js $APPDIR
 
 # For end production you rather wanna use this instead of above
 # RUN npm install --quiet --prod

@@ -10,8 +10,7 @@ services:
 #      - app1    # nginx need access to app1 (nodejs server)
   app1:
     build: ./app
-    # issue: it complain about this
-    volumes:    # even here we need to access the source file when development mode
+    volumes:
       - ./app/src:/home/app
       - /home/app/node_modules
     restart: always
