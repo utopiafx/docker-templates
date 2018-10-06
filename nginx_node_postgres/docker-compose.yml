@@ -1,56 +1,22 @@
 version: '3'
 services:
-  nginx:
-    build: ./nginx
-    links:
-      - app1:app1
-#      - app2:app2
-#      - app3:app3
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - "80:80"
-    restart: always
-
+#  nginx:
+#    build: ./nginx
+#    volumes:
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # this is only for development, so we don't have to rebuild image everytime
+#    ports:
+#      - "8070:80"   # remember the port in browser or client will use is domain:8000 not 80!, the 80 is the mapped container port to this port inside
+#    depends_on:
+#      - app1    # nginx need access to app1 (nodejs server)
   app1:
     build: ./app
-    links:
-      - db
-    environment:
-      PORT: 3000
-      DB_CONNECTION: postgres://user:secure1@db/test_db
-      NODE_ENV: "production"
-    ports:
-      - "3000:3000"
+    # issue: it complain about this
+    volumes:    # even here we need to access the source file when development mode
+      - ./app/src:/home/app
+      - /home/app/node_modules
     restart: always
-
-#  app2:
-#    build: ./app
-#    links:
-#      - db
-#    environment:
-#      PORT: 3000
-#      DB_CONNECTION: postgres://user:secure1@db/test_db
-#      NODE_ENV: "production"
-#    ports:
-#      - "3001:3000"
-
-#  app3:
-#    build: ./app
-#    links:
-#      - db
-#    environment:
-#      PORT: 3000
-#      DB_CONNECTION: postgres://user:secure1@db/test_db
-#      NODE_ENV: "production"
-#    ports:
-#      - "3002:3000"
-
-  db:
-    image: postgres:9.3
-    environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=secure1
-      - POSTGRES_DB=test_db
     ports:
-      - "5432:5432"
+      - "5400:3000"
+  # 2 other services we could add later
+  #postgres:
+  #redis

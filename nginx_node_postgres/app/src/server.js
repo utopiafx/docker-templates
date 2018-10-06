@@ -1,0 +1,13 @@
+// server.js
+
+const express = require('express')
+const app = express()
+
+app.get('/', (req, res) => {
+	console.log("client connected...");
+    res.send('Hello world again from a Node.js app!')
+});
+
+app.listen(3000, () => {
+    console.log('Server is up on 3000')
+});

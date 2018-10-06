@@ -5,5 +5,4 @@ FROM nginx:alpine
 MAINTAINER Your name
 
 # Copy custom configuration file from the current directory
-# This is being used when installing in the end production
-#COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
