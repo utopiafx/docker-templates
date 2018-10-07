@@ -23,5 +23,14 @@ services:
          WORDPRESS_DB_HOST: db:3306
          WORDPRESS_DB_USER: wordpress
          WORDPRESS_DB_PASSWORD: wordpress
+      # This is only for development mode, when wanna change files in the wordpress or themes etc
+      # from start!, in other cases, you have already editor inside wp-admin and
+      # all you need for adding themes, add plugins etc. And you could of course in live-production
+      # even setup a FTP inside the container if needed. Not recommended, but still.
+      # the best practice would perhaps be to work local container first and then rebuild the image
+      # and push it up, when changings files in wordpress like this one, or 
+      # using the CMS for it. 
+      volumes:
+         - ./src:/var/www/html
 volumes:
    db_data:
