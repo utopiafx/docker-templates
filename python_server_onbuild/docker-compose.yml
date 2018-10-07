@@ -1,0 +1,9 @@
+version: '3'
+services:
+  pythonserver:
+    build: ./pythonsrv
+    volumes:
+      # this is only for debugging in realtime in development mode, should be removed when done!
+      - ./pythonsrv/src:/usr/src/app
+    ports:
+      - "8090:8080"
