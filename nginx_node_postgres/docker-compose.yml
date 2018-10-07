@@ -5,7 +5,7 @@ services:
 #    volumes:
 #      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # this is only for development, so we don't have to rebuild image everytime
 #    ports:
-#      - "8070:80"   # remember the port in browser or client will use is domain:8000 not 80!, the 80 is the mapped container port to this port inside
+#      - "8000:80"   # remember the port in browser or client will use is domain:8000 not 80!, the 80 is the mapped container port to this port inside
 #    depends_on:
 #      - app1    # nginx need access to app1 (nodejs server)
   app1:
