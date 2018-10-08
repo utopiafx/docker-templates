@@ -1,8 +1,8 @@
 # nginx-node-postgres template
 
-This template is using Nginx , Node, Postgres in a simple webserver.
-A basic setup, which you could of course modify or build more with
-custom services or official services like redis etc.
+This template is using Nginx , Node, Postgres in a simple webserver example.
+A basic setup, which you could of course modify or build out more with
+own custom services or official services like redis etc.
 
 ## Instructions
 

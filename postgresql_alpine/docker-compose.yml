@@ -4,10 +4,11 @@ services:
     build: ./postgres
     restart: always
     volumes:
-      #- db_data:/var/lib/postgresql/data
-      - dbdata:/var/lib/postgresql/data
+      - dbdata:/var/lib/postgresql/data # using this for permament storing inside the container
+      #- ./dbdata:/var/lib/postgresql/data. # using this for store data on both container and the projects map dbdata
     ports:
-      - "5432"
+      - "5432" # this don't expose the ports to the host but to the containers
+      #- "8800:5432" # this exposing the port 5432 to the world outside the container throw 8800
     env_file:
       - db.env
 # This is being used for storing permamently

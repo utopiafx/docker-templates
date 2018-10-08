@@ -1,4 +1,4 @@
-FROM postgres:alpine
+FROM postgres:10-alpine
 
 # Create the directory as root
 RUN mkdir -p /home/sql
