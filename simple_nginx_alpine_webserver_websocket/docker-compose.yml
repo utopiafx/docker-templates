@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx:
+    build: ./socket    # change here to whatever you wanna use of the templates
+    tty: true
+    ports:
+      - "8082:8087"
+    depends_on:
+      - nodejs
+  nodejs:
+    build: ./srv
+    tty: true # tells the container to keep running even when theres no daemon specified via CMD in the Dockerfile
+    volumes:
+      - './srv/src:/home/app'
+      - /home/app/node_modules
+      - /var/www/html     # Only use this when using "static" and above

@@ -1,0 +1,17 @@
+{
+  "name": "easyio",
+  "version": "0.0.1",
+  "description": "A tiny node.js app to test your socket.io and rest API connectivity",
+  "main": "main.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "your name <youremail@gdomain.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "minimist": "^1.2.0",
+    "pug": "^2.0.3",
+    "socket.io": "^1.7.3"
+  }
+}

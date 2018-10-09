@@ -1,0 +1,2 @@
+docker-compose down
+docker rmi -f simple_nginx_alpine_webserver_websocket_nginx simple_nginx_alpine_webserver_websocket_nodejs
